@@ -11,7 +11,7 @@ const Landing = () => {
     const goToAbout = () => {
         setTimeout(() => {
             navigate("/about");
-        }, 300); // simulate smooth effect
+        }, 300);
     };
 
     const containerVariants = {
@@ -43,6 +43,7 @@ const Landing = () => {
             animate="visible"
             exit={{ opacity: 0, transition: { duration: 0.5 } }}
         >
+            {/* Background blobs */}
             <div className="absolute inset-0 bg-gradient-to-br from-purple-100 via-purple-200 to-transparent z-0 blur-[100px] opacity-80" />
             <div className="absolute top-[-250px] right-[-250px] w-[600px] h-[600px] bg-purple-400 rounded-full blur-[100px] z-0" />
             <div className="absolute bottom-[-250px] left-[-250px] w-[600px] h-[600px] bg-purple-300 rounded-full blur-[100px] z-0" />
@@ -50,15 +51,16 @@ const Landing = () => {
             {/* Navigation */}
             <Navbar />
 
-            <div className="relative z-10 h-screen flex flex-col justify-center pl-16 ml-8 max-w-[600px]">
+            {/* Content */}
+            <div className="relative z-10 h-screen flex flex-col justify-center px-6 sm:px-12 md:pl-16 md:ml-8 max-w-[600px]">
                 <motion.h1
-                    className="text-8xl text-purple-900 mb-4"
+                    className="text-5xl sm:text-6xl md:text-8xl text-purple-900 mb-4 leading-tight"
                     variants={itemVariants}
                 >
                     HydraX
                 </motion.h1>
                 <motion.p
-                    className="text-black font-medium text-lg leading-7"
+                    className="text-base sm:text-lg md:text-xl text-black font-medium leading-7"
                     variants={itemVariants}
                 >
                     Hydrax gives you full control over your drink’s temperature. Switch
@@ -66,23 +68,29 @@ const Landing = () => {
                     performance.
                 </motion.p>
             </div>
+
+            {/* Footer */}
             <motion.div
-                className="absolute bottom-8 left-8 text-sm text-gray-600 z-10"
+                className="absolute bottom-6 left-6 sm:left-8 text-xs sm:text-sm text-gray-600 z-10"
                 variants={itemVariants}
             >
                 © 2025 HydraX <a href="#" className="underline">Terms</a> <a href="#" className="underline ml-2">Privacy</a>
             </motion.div>
+
+            {/* Social Icons */}
             <motion.div
-                className="absolute bottom-8 right-16 flex space-x-4 text-purple-400 text-lg z-10"
+                className="absolute bottom-6 right-6 sm:right-16 flex space-x-4 text-purple-400 text-lg z-10"
                 variants={itemVariants}
             >
                 <FontAwesomeIcon icon={faFacebookF} />
                 <FontAwesomeIcon icon={faInstagram} />
                 <FontAwesomeIcon icon={faTwitter} />
             </motion.div>
+
+            {/* Arrow Button */}
             <motion.button
                 onClick={goToAbout}
-                className="absolute right-10 top-1/2 transform -translate-y-1/2 bg-pink-100 border-4 border-pink-200 rounded-full p-4 hover:scale-105 transition duration-300 shadow-md z-10"
+                className="absolute right-6 sm:right-10 top-1/2 transform -translate-y-1/2 bg-pink-100 border-4 border-pink-200 rounded-full p-4 hover:scale-105 transition duration-300 shadow-md z-10"
                 variants={itemVariants}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
