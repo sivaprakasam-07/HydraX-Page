@@ -3,6 +3,7 @@ import { faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-sv
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import Navbar from './Navbar';
 
 const Landing = () => {
     const navigate = useNavigate();
@@ -45,15 +46,10 @@ const Landing = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-purple-100 via-purple-200 to-transparent z-0 blur-[100px] opacity-80" />
             <div className="absolute top-[-250px] right-[-250px] w-[600px] h-[600px] bg-purple-400 rounded-full blur-[100px] z-0" />
             <div className="absolute bottom-[-250px] left-[-250px] w-[600px] h-[600px] bg-purple-300 rounded-full blur-[100px] z-0" />
-            <motion.nav
-                className="absolute top-8 right-30 flex space-x-10 text-gray-700 text-lg font-medium z-10"
-                variants={itemVariants}
-            >
-                <button onClick={() => navigate('/')} className="hover:text-purple-800 transition-colors duration-300">Home</button>
-                <button onClick={() => navigate('/about')} className="hover:text-purple-800 transition-colors duration-300">About</button>
-                <button onClick={() => navigate('/features')} className="hover:text-purple-800 transition-colors duration-300">Features</button>
-                <button onClick={() => navigate('/contact')} className="hover:text-purple-800 transition-colors duration-300">Contact</button>
-            </motion.nav>
+
+            {/* Navigation */}
+            <Navbar />
+
             <div className="relative z-10 h-screen flex flex-col justify-center pl-16 ml-8 max-w-[600px]">
                 <motion.h1
                     className="text-8xl text-purple-900 mb-4"
