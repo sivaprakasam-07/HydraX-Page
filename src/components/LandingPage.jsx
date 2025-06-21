@@ -90,8 +90,6 @@ const Landing = () => {
                 >
                     The smart water bottle that cools and heats on demand. No tech hassle — just hydration, redefined.
                 </motion.p>
-
-                {/* Explore Button */}
                 <motion.button
                     className="mt-8 w-fit bg-purple-700 hover:bg-purple-800 text-white px-6 py-3 rounded-full text-md font-semibold shadow-md"
                     initial={{ scale: 0, opacity: 0 }}
@@ -102,11 +100,11 @@ const Landing = () => {
                         stiffness: 300,
                         damping: 15,
                     }}
+                    onClick={() => navigate("/features")}
                 >
                     Explore Features
                 </motion.button>
             </div>
-
             {/* Footer text */}
             <motion.div
                 className="absolute bottom-6 left-6 sm:left-8 text-xs sm:text-sm text-gray-600 z-10"
