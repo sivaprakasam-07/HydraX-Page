@@ -16,14 +16,16 @@ const Navbar = () => {
     ];
 
     const handleNavigation = (path) => {
-        setIsMobileMenuOpen(false); // Close menu on navigation
-        navigate(path);
+        if (location.pathname !== path) {
+            navigate(path);
+        }
+        setIsMobileMenuOpen(false);
     };
 
     return (
         <>
             {/* Desktop Navbar */}
-            <nav className="hidden md:flex absolute top-8 right-16 space-x-10 text-gray-700 text-lg font-medium z-10">
+            <nav className="hidden md:flex fixed top-8 right-16 space-x-10 text-gray-700 text-lg font-medium z-50">
                 {navItems.map((item) => (
                     <button
                         key={item.name}
@@ -36,7 +38,7 @@ const Navbar = () => {
             </nav>
 
             {/* Mobile Menu Toggle Button */}
-            <div className="md:hidden absolute top-6 right-6 z-20">
+            <div className="md:hidden fixed top-6 right-6 z-50">
                 <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-purple-700 text-2xl focus:outline-none">
                     <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} />
                 </button>
@@ -44,7 +46,7 @@ const Navbar = () => {
 
             {/* Mobile Drawer */}
             {isMobileMenuOpen && (
-                <div className="md:hidden absolute top-0 right-0 w-3/4 h-screen bg-white shadow-xl flex flex-col space-y-6 pt-24 px-6 z-10">
+                <div className="md:hidden fixed top-0 right-0 w-3/4 h-screen bg-white shadow-xl flex flex-col space-y-6 pt-24 px-6 z-40">
                     {navItems.map((item) => (
                         <button
                             key={item.name}
